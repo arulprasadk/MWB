@@ -1,0 +1,17 @@
+<!DOCTYPER html>
+<html>
+<head>
+	<script src="GuessGame.js"></script>
+	<script>
+		
+		function callGuess()
+		{
+			var input = parseInt(document.getElementById("input").value);
+			document.getElementById("result").innerHTML = g$().guess(input);
+		}
+	</script>
+	
+	<input id="input" type="text" onBlur="callGuess()" />
+	<p id="result"> </p>
+</head>
+	

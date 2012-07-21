@@ -1,0 +1,36 @@
+<!DOCTYPER html>
+<html>
+<head>
+	<script src="jquery-1.7.2.min.js">
+	</script>
+	<script>
+		$().ready(function() {
+			
+			window.setInterval(function() {
+				$.ajax({ 
+						url : "Date.jsp",
+						type : "GET",
+						data : { query : "arul"},
+						success : function(response) {
+							console.log(response)
+							$("#sec1").html(response);
+						},
+						error : function(xhr)
+							{
+								console.log(xhr)
+							}
+						}
+						
+						);
+				$("#sec1").css("display","")
+				console.log("ajax call done ... ")
+			},1000);
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="load" id="clickMe" />
+	<div id="sec1" style="display:none">
+		<progress></progress>
+	</div>
+</body>

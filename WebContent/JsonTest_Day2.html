@@ -1,0 +1,58 @@
+<!DOCTYPER html>
+<html>
+<head>
+	<script src="jquery-1.7.2.min.js">
+	</script>
+	
+	<script>
+	var countriesContainer;
+	
+	$().ready( function () { 
+		
+		$.ajax({ 
+			url : "Countries.jsp",
+			data : { queryText : $("#queryText").val()},
+			dataType : "json",
+			success : function(response) {
+				countriesContainer = response;
+				var countries = response.countries;
+				for( i = 0 ; i < countries.length; i++)
+				{
+					$("#countries").append(new Option(countries[i], countries[i]));
+				}
+				$("#sec1").append(response.responseforQuery);
+			},
+			error : function(xhr)
+				{
+					console.log(xhr)
+				}
+			});
+
+		$("#countries").on("change" , function () {
+			var cities = countriesContainer[$("#countries").val()];
+			console.log(cities)
+			$("#cities").html("");
+			for( i = 0 ; i < cities.length; i++)
+			{
+				$("#cities").append(new Option(cities[i], cities[i]));
+			}
+		})
+	});
+	</script>
+	
+<body>
+	<input type="text" id="queryText" />
+	<input type="button" id="query" />
+	
+	<select id="countries">
+	</select>
+	
+	<select id="cities">
+	</select>
+	
+</body>
+<div id="sec1">
+</div>
+</head>
+
+<html>

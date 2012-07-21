@@ -1,0 +1,35 @@
+<!DOCTYPER html>
+<html>
+<head>
+	<script src="jquery-1.7.2.min.js">
+	</script>
+	<script>
+		$().ready( function () {
+		$("#add").on("click" , function () {
+			console.log('a')
+			$("table").append("<tr> <td>" + $("#name").val() + "<td>" + $("#age").val() 
+					+ "<td> <input id='delchk' type='checkbox' value='1'> </tr>"); 
+		})
+		
+		$("#remove").on("click" , function () {
+			$("#delchk:checked").parents("tr").remove();
+		});
+		
+		});
+		
+		
+	</script>
+</head>
+
+<input type="text" id="name">
+<input type="text" id="age">
+<input type="button" id="add" value="Add" />  
+<input type="button" id="remove" value="remove" />
+<table>
+<tr>
+	<th> Name
+	<th> Age
+	<th> Remove
+</tr> 
+</table>
+</html>

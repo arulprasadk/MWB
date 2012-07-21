@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="jquery.mobile-1.1.1.css" />
+	<script src="jquery-1.7.2.min.js"></script>
+	<script src="jquery.mobile-1.1.1.js"></script>
+	<script>
+		$().ready(function() {
+			$("#clickBtn").on("click", function() {
+				$.mobile.changePage("#homeScreen");
+				
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<div data-role="page"> 
+			<div data-role="header" data-theme="b"> 
+			<h3>Banking with Sella <h3>
+		</div>
+		<div data-role="content" data-theme="e"> 
+			<P>Welcome to Sella</P>
+			<div data-role="fieldcontain">
+			 <label> Name </label>
+			  <input type="text">
+			</div>
+			<div data-role="button"  id="clickBtn">
+				Click
+			 </div>  
+		</div>
+		<div data-role="footer"> Footer
+	</div>
+	</div>
+	<div data-role="page" id="homeScreen" data-theme="d">
+	
+		<div data-role="collapsable-set">
+			<div data-role="collapsible">
+				<h3>Books</h3>
+				<ul data-role="listview" data-inset="true">
+					<li>Restful JAX-RS</li>
+					<li>JQuery - Mobile</li>
+					<li>JQuery - Mobile</li>
+				</ul>
+			</div>
+			<div data-role="collapsible">
+				<h3>Kindle</h3>
+			</div>
+			<div data-role="collapsible">
+				<h3>E-pub</h3>
+			</div>
+			
+		</div>
+		</div>
+	<div data-role="page"> Page 3</div>
+</body>
